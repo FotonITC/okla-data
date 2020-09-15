@@ -10,41 +10,52 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "plat")
-public class Plat {
+@Table(name = "dishes")
+public class Dish {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	private String dbUri;
+
+	private boolean fromDb;
 
 	private String label;
 
 	@Column(columnDefinition = "text")
 	private String description;
 
-	private String type;
+	@ElementCollection
+	private List<String> types;
 	private String inventor;
 	private int calories;
+
+	@ElementCollection
+	private List<String> subjects;
+
+	@ElementCollection
+	private List<String> images;
 
 	@Column(columnDefinition = "text")
 	private String preparationSheet;
 
 	private String preparationVideo;
-	
+
 	@ElementCollection
 	private List<String> ingredients;
-	
+
 	@ElementCollection
 	private List<String> countries;
-	
+
 	@ElementCollection
-	private List<Plat> variants;
-	
+	private List<Dish> variants;
+
 	@ElementCollection
-	private List<Plat> similarPlats;
-	
+	private List<Dish> similarDishes;
+
 	@ElementCollection
-	private List<String> prducts;
-	
+	private List<String> companies;
+
 	@ElementCollection
 	private List<String> chefs;
 
@@ -54,6 +65,22 @@ public class Plat {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getDbUri() {
+		return dbUri;
+	}
+
+	public void setDbUri(String dbUri) {
+		this.dbUri = dbUri;
+	}
+
+	public boolean isFromDb() {
+		return fromDb;
+	}
+
+	public void setFromDb(boolean fromDb) {
+		this.fromDb = fromDb;
 	}
 
 	public String getLabel() {
@@ -72,12 +99,12 @@ public class Plat {
 		this.description = description;
 	}
 
-	public String getType() {
-		return type;
+	public List<String> getTypes() {
+		return types;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setTypes(List<String> types) {
+		this.types = types;
 	}
 
 	public String getInventor() {
@@ -94,6 +121,22 @@ public class Plat {
 
 	public void setCalories(int calories) {
 		this.calories = calories;
+	}
+
+	public List<String> getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(List<String> subjects) {
+		this.subjects = subjects;
+	}
+
+	public List<String> getImages() {
+		return images;
+	}
+
+	public void setImages(List<String> images) {
+		this.images = images;
 	}
 
 	public String getPreparationSheet() {
@@ -128,28 +171,28 @@ public class Plat {
 		this.countries = countries;
 	}
 
-	public List<Plat> getVariants() {
+	public List<Dish> getVariants() {
 		return variants;
 	}
 
-	public void setVariants(List<Plat> variants) {
+	public void setVariants(List<Dish> variants) {
 		this.variants = variants;
 	}
 
-	public List<Plat> getSimilarPlats() {
-		return similarPlats;
+	public List<Dish> getSimilarDishes() {
+		return similarDishes;
 	}
 
-	public void setSimilarPlats(List<Plat> similarPlats) {
-		this.similarPlats = similarPlats;
+	public void setSimilarDishes(List<Dish> similarPlats) {
+		this.similarDishes = similarPlats;
 	}
 
-	public List<String> getPrducts() {
-		return prducts;
+	public List<String> getCompanies() {
+		return companies;
 	}
 
-	public void setPrducts(List<String> prducts) {
-		this.prducts = prducts;
+	public void setCompanies(List<String> companies) {
+		this.companies = companies;
 	}
 
 	public List<String> getChefs() {
