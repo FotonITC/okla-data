@@ -28,7 +28,7 @@ public class Dish {
 	@ElementCollection
 	private List<String> types;
 	private String inventor;
-	private int calories;
+	private String calories;
 
 	@ElementCollection
 	private List<String> subjects;
@@ -48,7 +48,7 @@ public class Dish {
 	private List<String> countries;
 
 	@ElementCollection
-	private List<Dish> variants;
+	private List<String> variants;
 
 	@ElementCollection
 	private List<Dish> similarDishes;
@@ -115,11 +115,11 @@ public class Dish {
 		this.inventor = inventor;
 	}
 
-	public int getCalories() {
+	public String getCalories() {
 		return calories;
 	}
 
-	public void setCalories(int calories) {
+	public void setCalories(String calories) {
 		this.calories = calories;
 	}
 
@@ -171,11 +171,11 @@ public class Dish {
 		this.countries = countries;
 	}
 
-	public List<Dish> getVariants() {
+	public List<String> getVariants() {
 		return variants;
 	}
 
-	public void setVariants(List<Dish> variants) {
+	public void setVariants(List<String> variants) {
 		this.variants = variants;
 	}
 
